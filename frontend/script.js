@@ -1,6 +1,6 @@
 async function buscarFilmes() {
     try {
-        const resposta = await fetch("http://localhost:3333/")
+        const resposta = await fetch("https://att-1-filmes.vercel.app/")
 
         if (!resposta.ok) {
             throw new Error("Erro ao buscar os filmes")

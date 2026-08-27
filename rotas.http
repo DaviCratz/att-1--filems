@@ -1,4 +1,4 @@
-GET http://localhost:3333/
+GET https://att-1-filmes.vercel.app/
 
 ###
 POST http://localhost:3333/create
