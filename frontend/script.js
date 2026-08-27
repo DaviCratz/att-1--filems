@@ -1,6 +1,6 @@
 async function buscarFilmes() {
     try {
-        const resposta = await fetch("http://localhost:3333")
+        const resposta = await fetch("http://localhost:3333/")
 
         if (!resposta.ok) {
             throw new Error("Erro ao buscar os filmes")
