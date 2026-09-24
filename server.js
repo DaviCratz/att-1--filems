@@ -1,4 +1,3 @@
-
 import express from "express"
 import mysql2 from "mysql2"
 import cors from "cors"
@@ -15,13 +14,22 @@ const database = mysql2.createPool({
     database: "alunos_filmes03MC"
 })
 
-// Buscar filmes
+// ============================
+// BUSCAR FILMES
+// ============================
+
 app.get("/", (request, response) => {
-    const selectCommand = "SELECT * FROM correcao_MarcioMarcal"
+
+    const selectCommand = `
+        SELECT * FROM correcao_MarcioMarcal
+    `
 
     database.query(selectCommand, (error, data) => {
+
         if (error) {
+
             console.log("Erro ao buscar filmes:", error)
+
             return response.status(500).json({
                 message: "Erro ao buscar filmes"
             })
@@ -31,9 +39,18 @@ app.get("/", (request, response) => {
     })
 })
 
-// Cadastrar filme
+// ============================
+// CADASTRAR FILME
+// ============================
+
 app.post("/create", (request, response) => {
-    const { title, gender, ageLimit, duration } = request.body
+
+    const {
+        title,
+        gender,
+        ageLimit,
+        duration
+    } = request.body
 
     const insertCommand = `
         INSERT INTO correcao_MarcioMarcal
@@ -45,8 +62,11 @@ app.post("/create", (request, response) => {
         insertCommand,
         [title, gender, ageLimit, duration],
         (error) => {
+
             if (error) {
+
                 console.log("Erro ao cadastrar:", error)
+
                 return response.status(500).json({
                     message: "Erro ao cadastrar filme"
                 })
@@ -59,44 +79,80 @@ app.post("/create", (request, response) => {
     )
 })
 
-// Deletar filme
+// ============================
+// DELETAR FILME
+// ============================
+
 app.delete("/delete/:id", (request, response) => {
+
     const { id } = request.params
 
-    const deleteCommand =
-        "DELETE FROM correcao_MarcioMarcal WHERE id = ?"
+    const deleteCommand = `
+        DELETE FROM correcao_MarcioMarcal
+        WHERE id = ?
+    `
 
-    database.query(deleteCommand, [id], (error) => {
-        if (error) {
-            console.log("Erro ao apagar:", error)
-            return response.status(500).json({
-                message: "Erro ao apagar filme"
+    database.query(
+        deleteCommand,
+        [id],
+        (error) => {
+
+            if (error) {
+
+                console.log("Erro ao apagar:", error)
+
+                return response.status(500).json({
+                    message: "Erro ao apagar filme"
+                })
+            }
+
+            response.json({
+                message: "Filme apagado com sucesso!"
             })
         }
-
-        response.json({
-            message: "Filme apagado com sucesso!"
-        })
-    })
+    )
 })
 
-// Editar filme
+// ============================
+// EDITAR FILME
+// ============================
+
 app.put("/update/:id", (request, response) => {
+
     const { id } = request.params
-    const { title, gender, ageLimit, duration } = request.body
+
+    const {
+        title,
+        gender,
+        ageLimit,
+        duration
+    } = request.body
 
     const updateCommand = `
         UPDATE correcao_MarcioMarcal
-        SET title = ?, gender = ?, ageLimit = ?, duration = ?
+        SET
+            title = ?,
+            gender = ?,
+            ageLimit = ?,
+            duration = ?
         WHERE id = ?
     `
 
     database.query(
         updateCommand,
-        [title, gender, ageLimit, duration, id],
+        [
+            title,
+            gender,
+            ageLimit,
+            duration,
+            id
+        ],
         (error) => {
+
             if (error) {
+
                 console.log("Erro ao editar:", error)
+
                 return response.status(500).json({
                     message: "Erro ao editar filme"
                 })
@@ -109,6 +165,14 @@ app.put("/update/:id", (request, response) => {
     )
 })
 
+// ============================
+// SERVIDOR
+// ============================
+
 app.listen(3333, () => {
-    console.log("Servidor online em http://localhost:3333")
+
+    console.log(
+        "Servidor online em http://localhost:3333"
+    )
+
 })

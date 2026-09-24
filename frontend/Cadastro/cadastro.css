@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+}
+
+#form-filme {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    gap: 10px;
+}
+
+#form-filme input, #form-filme button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#form-filme button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#form-filme button:hover {
+    background-color: #218838;
+}
+
+a {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+}

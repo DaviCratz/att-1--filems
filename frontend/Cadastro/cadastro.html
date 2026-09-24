@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Filme</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+
+    <h1>Cadastrar Novo Filme</h1>
+
+    <form id="form-filme">
+        <input type="text" id="titulo_filme" placeholder="Título do filme" required>
+        <input type="text" id="genero" placeholder="Gênero" required>
+        <input type="number" id="duracao" placeholder="Duração (minutos)" required>
+        <input type="number" id="classificacao_etaria" placeholder="Classificação (0 para Livre, 12, 16...)" required>
+        <button type="submit">Cadastrar Filme</button>
+    </form>
+
+    <br>
+
+    <a href="../index.html">Voltar para a lista de filmes</a>
+
+    <script src="cadastro.js"></script>
+
+</body>
+
+</html>

@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
-
-    <title>Lista de Filmes</title>
+    <title>Lista de Filmes - Davi e Jose</title>
 </head>
 
 <body>
 
     <h1>Lista de Filmes</h1>
 
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="cadastro/cadastro.html">Cadastrar Novo Filme</a>
+    </div>
+
     <section class="filmes"></section>
+
+    <!-- Modal de Edição -->
+    <dialog id="modal-editar" style="padding: 20px; border-radius: 8px; border: 1px solid #ccc; margin: auto;">
+        <h2>Editar Filme</h2>
+        <form id="form-editar" style="display: flex; flex-direction: column; gap: 10px; min-width: 280px;">
+            <input type="hidden" id="edit_id">
+
+            <input type="text" id="edit_titulo" placeholder="Título" required>
+            <input type="text" id="edit_genero" placeholder="Gênero" required>
+            <input type="number" id="edit_duracao" placeholder="Duração (min)" required>
+            <input type="number" id="edit_classificacao" placeholder="Classificação" required>
+
+            <button type="submit" style="background-color: #007bff; color: white; padding: 8px; border: none; border-radius: 4px; cursor: pointer;">Salvar</button>
+            <button type="button" id="btn-cancelar" style="background-color: #6c757d; color: white; padding: 8px; border: none; border-radius: 4px; cursor: pointer;">Cancelar</button>
+        </form>
+    </dialog>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

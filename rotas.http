@@ -1,6 +1,10 @@
+### BUSCAR FILMES
+
 GET https://att-1-filmes.vercel.app/
 
-###
+
+### CADASTRAR FILME
+
 POST http://localhost:3333/create
 Content-Type: application/json
 
@@ -11,15 +15,19 @@ Content-Type: application/json
     "duration": 149
 }
 
-###
+
+### DELETAR FILME
+
 DELETE http://localhost:3333/delete/12
 
-###
+
+### EDITAR FILME
+
 PUT http://localhost:3333/update/2
 Content-Type: application/json
 
 {
-    "title": "Senhor dos Anéis: As duas torres",
+    "title": "Senhor dos Anéis: As Duas Torres",
     "gender": "Fantasia / Ação",
     "ageLimit": 18,
     "duration": 187
